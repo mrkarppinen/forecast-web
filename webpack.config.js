@@ -4,11 +4,12 @@ var path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/js/main.js',
   output: {
-        publicPath: '/public/',
+        publicPath: '/static/',
     		path: path.join(__dirname, 'public'),
     		filename: "js/main.js"
   },
@@ -43,14 +44,17 @@ module.exports = {
       template: path.join(__dirname, 'src/index.html'),
       excludeAssets: [/main.js/]
     }),
-    new HtmlWebpackExcludeAssetsPlugin()
+    new HtmlWebpackExcludeAssetsPlugin(),
+    new CopyWebpackPlugin([
+      { from: 'src/icons', to: 'icons' },
+    ])
 ]
 ,
 devServer: {
 contentBase: [path.join(__dirname, "/src")],
   compress: true,
   port: 9000,
-  publicPath: "/public/"
+  publicPath: "/static/"
 }
 
 
