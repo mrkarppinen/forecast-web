@@ -16,7 +16,7 @@ export default class Forecast extends React.Component {
     render (){
        
         return (
-            <div className="columns" >
+            <div className="rows" >
                  {/*{JSON.stringify(this.state)}*/}
                 {this.state.data.day && 
                 <Weather narrative={this.state.data.day.narrative} icon_code={this.state.data.day.icon_code} long_daypart_name={this.state.data.day.long_daypart_name} /> 

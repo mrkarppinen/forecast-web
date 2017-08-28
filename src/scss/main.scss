@@ -15,3 +15,16 @@
     font-size: 0.75em;
     font-style: italic;
 }
+
+
+.waiting, .loading, .error {
+    color: #d3d3d3;
+}
+
+.waiting-attention {
+    font-size: 10em;
+}
+
+.error-attention {
+    font-size: 8em;
+}

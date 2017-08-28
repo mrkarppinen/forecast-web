@@ -1,5 +1,9 @@
 import React from 'react';
 import Forecast from './forecast';
+import Waiting from './waiting';
+import Loading from './loading';
+import Error from './error';
+
 
 export default class App extends React.Component {
     
@@ -27,10 +31,10 @@ export default class App extends React.Component {
                this.setState({
                    status: 'loading'
                }); 
-            //    this._load('-73.935242', '40.73061');
                 this._load(position.coords.longitude, position.coords.latitude);
         }, 
         (error) => { 
+            console.error(error);
             this.setState({
                 status: 'no location'
             });
@@ -88,16 +92,16 @@ export default class App extends React.Component {
     render(){
 
         if (this.state.status === 'waiting'){
-             return (<p>Waiting location</p>);
+             return (<Waiting />);
         }
 
         if (this.state.status === 'loading'){
-            return (<p>Loading...</p>);
+            return (<Loading />);
         }
 
         if (this.state.status === 'no location'){
-            return (<p>No location available.</p>);
-        }
+            return (<Error />);
+        }    
 
        
         const forecasts = this.state.forecasts.map( (forecast, index) => (
