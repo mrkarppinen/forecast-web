@@ -7,7 +7,7 @@ export default class Loading extends React.Component {
         return (
         <div className="rows has-text-centered loading" >
             <div className="column image-container">
-                <img className="image is-128x128" src="/icons/loading.svg" />
+                <img className="image is-128x128" src="/static/icons/loading.svg" />
              </div>   
              <p className="column is-12">Loading...</p>
         </div>

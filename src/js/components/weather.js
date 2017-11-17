@@ -5,9 +5,10 @@ export default class Weather extends React.Component {
     constructor(props){
         super(props);
 
+        let iconCode = ("0" + props.icon_code).substr(-2);
         this.state = {
             narrative: props.narrative,
-            iconSrc: `/static/icons/${props.icon_code}.png`,
+            iconSrc: `/static/icons/${iconCode}.png`,
             long_daypart_name: props.long_daypart_name
         };
     }
