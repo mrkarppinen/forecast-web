@@ -7,6 +7,6 @@ COPY package.json /app
 RUN npm install --production
 
 COPY . /app
-EXPOSE 8080
+EXPOSE 8080 8081
 
 CMD ["npm", "start"]
